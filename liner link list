@@ -1,0 +1,122 @@
+#include <iostream>
+#include <stdlib.h>
+#define nil=0;
+struct node
+{
+    int info;
+    struct node *next;
+};
+typedef struct node *nodeptr;
+using namespace std;
+
+void insb(nodeptr &plist)
+{
+    nodeptr p;
+    p=new node;
+    cin>>p->info;
+    p->next=plist;
+    plist=p;
+}
+void inse (nodeptr &plist)
+{
+    nodeptr h,p;
+    p=new node();
+    h=plist;
+    while(h->next != 0)
+        h=h->next;
+    cin>>p->info;
+    p->next=0;
+    h->next=p;//// insert in end
+}
+void insbe(nodptr &plist)
+{
+    nodeptr p,a,b;
+    int j,k;
+    p=new node();
+    a=plist;
+    j=1;
+    cin>>k;
+    while(j != k)
+    {
+        b=a;
+        a=a->next;
+        j++;
+    }
+    cin>>p->info;
+    b->next=p;
+    p->next=a;
+}
+
+void delb (nodeptr &plist)
+{
+    nodeptr h;
+    h=plist;
+    plist=plist->next;
+    delete(h);
+}
+
+void dele(nodeptr &plist)
+{
+    nodeptr a,b;
+    a=plist;
+    while (a != 0)
+    {
+        b=a;
+        a=a->next;
+    }
+    b->next=0;
+    delete(a);
+}
+delbe(nodeptr &plist)
+{
+    nodeptr h,a,b
+    int j,k;
+    cin>>k;
+    j=1;
+    a=plist;
+    while(j !=k)
+    {
+        b=a;
+        a=a->next;
+        j++;
+    }
+    h=a->next;
+    b->next=h;
+    delet(a);
+}
+void pr(nodeptr &plist)
+{
+    nodeptr h;
+    h=plist;
+    if (h != 0)
+    {
+        cout<<h->info;
+        h=h->next;
+    }
+}
+int main()
+{
+    nodeptr plist;
+    plist=new node();
+    int x;
+    cin>>plist->next=0;
+    do
+    {
+        cout<<"enter your chose";
+        cin>>x
+           switch (x)
+        {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        default:
+        }
+
+    }
+    while(x != 8)
+        return 0;
+}

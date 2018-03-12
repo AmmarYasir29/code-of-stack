@@ -1,0 +1,72 @@
+#include<iostream>
+using namespace std;
+
+void pr(int cq[5],int &f, int &r){
+int i;
+if(r>=f){
+for(i=f;i<=r;i++)
+    cout<<cq[i]<<" ";
+    cout<<endl;
+    }
+else {
+    for(i=f;i<=4;i++)
+        cout<<cq[i]<<" ";
+    for(i=0;i<=r;i++)
+        cout<<cq[i]<<" ";
+    cout<<endl;
+    }
+}
+void del (int cq[5],int &f, int &r){
+int item;
+if(r==-1 && f==-1)
+    cout<<"Under flow\n";
+else if(f==r){
+    item=cq[f];
+    r=-1;
+    f=-1;
+    }
+    else if (f==4 && r<f){
+        item=cq[f];
+        f=0;
+        }
+    else {
+        item=cq[f];
+        f++;
+        }
+}
+void add (int cq[5],int &f, int &r){
+int item;
+if(f==0 && r==4)
+    cout<<"Over flow\n";
+else if(f-r==1)
+    cout<<"Over flow\n";
+else if (r==4 && f>0){
+    cout<<"The number you want to add: ";
+    cin>>item;
+    r=0;
+    cq[r]=item;
+}
+    else{
+    cout<<"The number you want to add: ";
+    cin>>item;
+    r++;
+    cq[r]=item;
+    }
+    if(f==-1)
+        f=0;
+}
+int main(){
+int cq[5];
+int x,f=-1,r=-1;
+cout<<"1- Add item\n2- Del item\n3- Print C.Q.\n4- stop the program.\n";
+do {
+    cout<<"Enter Your Choose ";
+    cin>>x;
+    switch(x){
+    case 1: add(cq,f,r);break;
+    case 2: del(cq,f,r);break;
+    case 3: pr(cq,f,r);break;
+    default: cout<<"Choose Among 1 to 4";
+    }
+    }while(x!=4);
+}

@@ -1,0 +1,55 @@
+#include <iostream>
+
+using namespace std;
+void pr(int q[5],int &f ,int &r){
+for(int i=f;i<=r;i++)
+    cout<<q[i]<<" ";
+    cout<<endl;
+}
+void del (int q[5],int &f, int &r){
+int item;
+if(f==-1)
+    cout<<"Under flow\n";
+else if(f==r){
+    item=q[f];
+    r=-1;
+    f=-1;
+    cout<<"The first number in Queue deleted \n";
+}
+else {
+    item=q[f];
+    f++;
+    cout<<"The first number in Queue deleted \n";
+    }
+}
+void add(int q[5],int &f, int &r){
+int item;
+if(r==4)
+    cout<<"overflow\n";
+else{
+        cout<<"The number you want to add: ";
+cin>>item;
+r++;
+q[r]=item;
+}
+if (f==-1)
+    f=0;
+}
+int main()
+{
+    int q[5];
+    int f=-1,r=-1,x;
+    cout<<"1- Add a number \n2- Delete the number\n3- print the queue\n";
+    do{
+        cout<<"Enter Your Choess ";
+        cin>>x;
+        switch(x){
+        case 1: add(q,f,r);break;
+        case 2: del(q,f,r);break;
+        case 3: pr(q,f,r);break;
+        default : cout<<"choess a number among 1 to 3 ^_^\n";
+        }
+    }while(x!=4);
+
+    return 0;
+}
